@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Legion of Mary Tessera',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
         textTheme: GoogleFonts.bitterTextTheme(),
       ),
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
               leading: const Icon(
-                Icons.person,
+                Icons.book,
                 color: Colors.lightBlueAccent,
               ),
             ),
@@ -109,32 +109,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
               leading: const Icon(
-                Icons.person,
-                color: Colors.lightBlueAccent,
+                Icons.star,
+                color: Colors.amberAccent,
               ),
             ),
           ],
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                  'assets/images/legion.jpg'), // Replace with your image path
+              fit: BoxFit.cover,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
