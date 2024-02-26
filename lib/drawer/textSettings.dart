@@ -3,11 +3,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:tessera/drawer/cathenaLegionisWidget.dart';
+import 'package:tessera/drawer/concludingPrayerWidget.dart';
+import 'package:tessera/drawer/frankDuffWidget.dart';
 import 'package:tessera/drawer/legionOfMaryPrayerWidget.dart';
 
 enum PrayerType {
   legionOfMary,
   catenaLegionis,
+  concludingPrayer,
+  frankDuff,
+  edelQuinn,
+  alfieLambe,
+  about
 }
 
 class AdaptiveText extends StatefulWidget {
@@ -56,6 +63,41 @@ class _AdaptiveTextState extends State<AdaptiveText> {
           fontFamily: _fontFamily,
         );
         break;
+      case PrayerType.concludingPrayer:
+        prayerWidget = ConcludingPrayerWidget(
+          prayerText: concludingPrayer,
+          fontSize: _fontSize,
+          fontFamily: _fontFamily,
+        );
+        break;
+      case PrayerType.frankDuff:
+        prayerWidget = FrankDuffPrayerWidget(
+          prayerText: frankDuffPrayer,
+          fontSize: _fontSize,
+          fontFamily: _fontFamily,
+        );
+        break;
+      case PrayerType.edelQuinn:
+        prayerWidget = FrankDuffPrayerWidget(
+          prayerText: edelQuinnPrayer,
+          fontSize: _fontSize,
+          fontFamily: _fontFamily,
+        );
+        break;
+      case PrayerType.alfieLambe:
+        prayerWidget = FrankDuffPrayerWidget(
+          prayerText: alfieLambePrayer,
+          fontSize: _fontSize,
+          fontFamily: _fontFamily,
+        );
+        break;
+      case PrayerType.about:
+        prayerWidget = FrankDuffPrayerWidget(
+          prayerText: about,
+          fontSize: _fontSize,
+          fontFamily: _fontFamily,
+        );
+        break;
     }
 
     return Expanded(
@@ -73,19 +115,37 @@ class _AdaptiveTextState extends State<AdaptiveText> {
                   },
                   child: prayerWidget,
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
               ],
             ),
           ),
           Positioned(
-            bottom: 0,
+            bottom: 10,
             right: 10,
             child: ElevatedButton(
               onPressed: () {
                 _showOptionsBottomSheet(context);
               },
-              child: const Icon(
-                Icons.settings, // Replace with the desired icon
-                size: 24.0, // Adjust the size as needed
+              child: const Row(
+                children: [
+                  // Text(
+                  //   'Settings', // Replace with the desired text
+                  //   style: TextStyle(
+                  //     fontSize: 10.0, // Adjust the font size as needed
+                  //     fontWeight:
+                  //         FontWeight.bold, // Adjust the font weight as needed
+                  //   ),
+                  // ),
+                  // SizedBox(
+                  //   width: 10,
+                  // ),
+                  Icon(
+                    Icons.settings, // Replace with the desired icon
+                    size: 20.0, // Adjust the size as needed
+                  ),
+                ],
               ),
             ),
           ),
@@ -113,7 +173,7 @@ class _AdaptiveTextState extends State<AdaptiveText> {
                         fontSize: 24.0,
                         fontFamily: 'Bitter',
                         fontWeight: FontWeight.bold,
-                        color: Colors.blueAccent,
+                        color: Color.fromARGB(255, 22, 97, 209),
                       ),
                     ),
                   ),
@@ -128,7 +188,7 @@ class _AdaptiveTextState extends State<AdaptiveText> {
                           min: 8.0,
                           label: widget.initialFontSize.round().toString(),
                           divisions: 10,
-                          thumbColor: Colors.blueAccent,
+                          thumbColor: const Color.fromARGB(255, 22, 97, 209),
                           max: 32.0,
                           onChanged: (value) {
                             setState(() {
@@ -155,6 +215,7 @@ class _AdaptiveTextState extends State<AdaptiveText> {
                         items: [
                           'Arial',
                           'Bitter',
+                          'Helvetica',
                           'Times New Roman',
                           'Courier New',
                         ].map<DropdownMenuItem<String>>((String value) {
@@ -165,6 +226,13 @@ class _AdaptiveTextState extends State<AdaptiveText> {
                         }).toList(),
                       ),
                     ],
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      widget.initialFontSize = 15;
+                      _fontFamily = 'Bitter';
+                    },
+                    child: const Text('Default'),
                   ),
                 ],
               ),

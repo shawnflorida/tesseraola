@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   device_preview: ^1.1.0
   google_fonts: ^6.1.0
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,10 @@ flutter:
   assets:
     - assets/images/marybg.png
     - assets/images/legion.jpg
+    - assets/images/bg.jpg
+    - assets/images/profile.jpg
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

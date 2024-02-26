@@ -39,7 +39,8 @@ class LegionOfMaryPrayerWidget extends StatelessWidget {
                 fontSize: fontSize,
                 fontFamily: fontFamily,
                 fontWeight: FontWeight.bold,
-                color: Colors.red, // You can customize the color
+                color: const Color.fromARGB(
+                    255, 197, 56, 46), // You can customize the color
               ),
             ),
           ),
@@ -53,20 +54,26 @@ class LegionOfMaryPrayerWidget extends StatelessWidget {
               fontSize: fontSize,
               fontFamily: fontFamily,
               fontWeight: FontWeight.bold,
-              color: Colors.blueAccent, // You can customize the color
+              color: const Color.fromARGB(
+                  255, 18, 52, 104), // You can customize the color
             ),
           ),
         );
       } else if (line.startsWith('R.')) {
         // Style for lines starting with 'R.'
         widgets.add(
-          Text(
-            line,
-            style: TextStyle(
-              fontSize: fontSize,
-              fontFamily: fontFamily,
-              fontStyle: FontStyle.italic,
-              color: Colors.green, // You can customize the color
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              line,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: fontSize - 3.0,
+                fontFamily: fontFamily,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(
+                    255, 107, 29, 29), // You can customize the color
+              ),
             ),
           ),
         );
@@ -75,6 +82,7 @@ class LegionOfMaryPrayerWidget extends StatelessWidget {
         widgets.add(
           Text(
             line,
+            textAlign: TextAlign.justify,
             style: TextStyle(
               fontSize: fontSize,
               fontFamily: fontFamily,
@@ -97,7 +105,6 @@ v. Send forth Your Spirit, O Lord, and they shall be created.
 R. And You shall renew the face of the earth.
 
 Let us pray.
-
 God our Father, pour out the gifts of Your Holy Spirit on the world. You sent the Spirit on Your Church to begin the teaching of the gospel: now let the Spirit continue to work in the world through the hearts of all who believe. Through Christ our Lord. Amen.
 
 v. You, O Lord, will open my lips.

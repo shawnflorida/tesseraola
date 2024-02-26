@@ -5,23 +5,29 @@ import 'package:tessera/drawer/textSettings.dart';
 class TextScreen extends StatelessWidget {
   final PrayerType prayerType;
   final String title;
+  final double fontSize;
 
-  const TextScreen({Key? key, required this.title, required this.prayerType})
+  const TextScreen(
+      {Key? key,
+      required this.title,
+      required this.prayerType,
+      required this.fontSize})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          backgroundColor: Colors.white24,
+          surfaceTintColor: Colors.white24,
           title: Text(
             title,
             style: GoogleFonts.bitter(),
           ), // Use the passed title
-          titleTextStyle: const TextStyle(
+          titleTextStyle: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.blueAccent,
-            fontSize: 24.0,
+            color: const Color.fromARGB(255, 18, 52, 104),
+            fontSize: fontSize,
           )),
       body: Center(
         child: Column(
